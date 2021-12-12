@@ -19,4 +19,7 @@
 	section {
 		width:  100%;
 	}
+	h2 {
+		cursor: pointer;
+	}
 </style>

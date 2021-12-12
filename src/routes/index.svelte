@@ -1,4 +1,5 @@
-<script type="text/typescript">
+<script>
+import { teams } from "$lib/stores.ts";
 import Section from "../components/section.svelte";
 
 const tempData = {
@@ -37,7 +38,7 @@ const tempData = {
 </Section>
 <Section title="Your Teams">
   <ul>
-    {#each tempData.teams as team}
+    {#each $teams as team}
     <li>{team}</li>
     {/each}
   </ul>
