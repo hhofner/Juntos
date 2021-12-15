@@ -1,32 +1,23 @@
 <script>
-	let isCollapsed = false;	
+	import 'chota';
+	import { Container, Nav } from 'svelte-chota';
 </script>
 
-<nav>
-	<h1>
-		Juntos!
-	</h1>
-	<a href="/">
-		Log In
-	</a>
-</nav>
+<Container class='is-full-screen'>
+	<Nav>
+		<a slot='left' href="/" class="brand">Juntos!</a>
+		<a slot='right' class="active" href="/">Login 1</a>
+	</Nav>
 
-<slot></slot>
+		<slot></slot>
 
-<footer>
-	Footer here
-</footer>
+	<footer>
+		Footer here
+	</footer>
+</Container>
 
 <style>
-	nav {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-	}
-	/* 	TODO: Remove colors default styling */
-	a {
-		border: black 1px solid;
-		text-decoration: none;	
+	footer {
+			margin-top: auto;
 	}
 </style>

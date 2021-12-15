@@ -1,6 +1,7 @@
 <script>
 import { teams } from "$lib/stores.ts";
 import Section from "../components/section.svelte";
+import { Button } from "svelte-chota";
 
 const tempData = {
   teams: [
@@ -30,17 +31,38 @@ const tempData = {
 
 <Section title="Your Challenges">
   {#each tempData.challenges as challenge, index}
-    <div>
-      <label for={index}>{challenge.name}</label>
-      <progress id={index} max={challenge.target} value={challenge.progress}/>
+    <div class='challenge'>
+      <div>
+        <label for={index}>{challenge.name}</label>
+        <progress id={index} max={challenge.target} value={challenge.progress}/>
+        <small class='text-grey'> Deadline: {challenge.endDate} </small>
+        <Button primary>record</Button>
+
+<!--        TODO: Make these "owner" only-->
+        <Button>edit</Button>
+        <Button error>delete</Button>
+      </div>
+      <span>movement graphs</span>
     </div>
   {/each}
 </Section>
-<Section title="Your Teams">
+
+<Section title="Your Teams" folded='true'>
   <ul>
     {#each $teams as team}
     <li>{team}</li>
     {/each}
   </ul>
 </Section>
-<Section title="Your Trophies"/>
+<Section title="Your Trophies" folded='true'/>
+
+<style>
+  .challenge {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  }
+  small {
+    display: block;
+  }
+</style>

@@ -1,8 +1,8 @@
-<script type="text/typescript">
+<script lang="typescript">
 	import { slide } from 'svelte/transition';
 
 	export let title = "Section Title";
-	let folded = false;
+	export let folded = false;
 </script>
 
 <section>

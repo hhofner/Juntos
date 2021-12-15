@@ -4,6 +4,8 @@ Let's excercise...juntos!
 
 A simple Svelte app to motivate groups to accomplish a particular work-out goal...together!
 
+Building with [SvelteChota](https://alexxnb.github.io/svelte-chota)
+
 ## Roadmap
 
 - [ ] Simple HTML UI and functionality
