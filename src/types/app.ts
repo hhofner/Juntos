@@ -1,5 +1,5 @@
 //TODO: Think about this a bit more -- more robust
-interface User {
+export interface User {
     id: number,
     teams: Team[],
     activePersonalGoals: Goal[],
@@ -22,6 +22,7 @@ interface Member {
 
 interface Challenge {
     name: string;
+    owner: User;
     startDate: Date;
     endDate: Date;
     progress: number;
