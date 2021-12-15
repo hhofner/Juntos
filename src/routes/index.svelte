@@ -1,68 +1,33 @@
 <script>
 import { teams } from "$lib/stores.ts";
 import Section from "../components/section.svelte";
-import { Button } from "svelte-chota";
+import Challenge from "../components/challenges/challenge.svelte";
+import { Card } from "svelte-chota";
 
-const tempData = {
-  teams: [
-  "ScovilleRunning",
-  "ScovilleGeneral",
-  "Home",
-  "Fam"
-  ],
-  challenges: [
-  {
-    name: "January 15K",
-    startDate: "2022-01-01",
-    endDate: "2022-01-20",
-    progress: 0,
-    target: 15,
-  },
-  {
-    name: "Personal 5K",
-    startDate: "2022-01-01",
-    endDate: "2022-01-20",
-    progress: 7.5,
-    target: 15,
-  },
-  ]
-}
+import tempData from "$lib/temp.json";
 </script>
 
 <Section title="Your Challenges">
-  {#each tempData.challenges as challenge, index}
-    <div class='challenge'>
-      <div>
-        <label for={index}>{challenge.name}</label>
-        <progress id={index} max={challenge.target} value={challenge.progress}/>
-        <small class='text-grey'> Deadline: {challenge.endDate} </small>
-        <Button primary>record</Button>
-
-<!--        TODO: Make these "owner" only-->
-        <Button>edit</Button>
-        <Button error>delete</Button>
-      </div>
-      <span>movement graphs</span>
-    </div>
+  {#each tempData.challenges as challenge (challenge.name)}
+    <Challenge data={challenge}/>
   {/each}
 </Section>
 
 <Section title="Your Teams" folded='true'>
-  <ul>
+  <div class='teams'>
     {#each $teams as team}
-    <li>{team}</li>
+    <Card>
+      <div><img src='https://icongr.am/material/account-group-outline.svg?size=66&color=currentColor'/></div>
+      {team}
+    </Card>
     {/each}
-  </ul>
+  </div>
 </Section>
 <Section title="Your Trophies" folded='true'/>
 
 <style>
-  .challenge {
+  .teams {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 2em;
-  }
-  small {
-    display: block;
+    gap: 0.5rem;
   }
 </style>

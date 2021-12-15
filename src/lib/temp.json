@@ -1,0 +1,24 @@
+{
+  "teams": [
+    "ScovilleRunning",
+    "ScovilleGeneral",
+    "Home",
+    "Fam"
+  ],
+  "challenges": [
+    {
+      "name": "January 15K",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-20",
+      "progress": 0,
+      "target": 15
+    },
+    {
+      "name": "Personal 5K",
+      "startDate": "2022-01-01",
+      "endDate": "2022-01-20",
+      "progress": 7.5,
+      "target": 15
+    }
+  ]
+}
