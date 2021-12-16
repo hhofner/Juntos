@@ -2,6 +2,13 @@
 	export let data;
 
 	import { Button } from "svelte-chota";
+	import { tweened } from 'svelte/motion';
+	import { cubicOut } from 'svelte/easing';
+
+	const progress = tweened(data.progress, {
+		duration: 400,
+		easing: cubicOut
+	});
 
 </script>
 
@@ -9,7 +16,7 @@
 	<div class='preview' >
 		<div>
 			<label>{data.name}</label>
-			<progress max={data.target} value={data.progress}></progress>
+			<progress max={data.target} value={$progress}></progress>
 
 			<small class='text-grey'> Deadline: {data.endDate} </small>
 
